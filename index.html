@@ -26,13 +26,13 @@ a {
     text-decoration: none;
 }
 
-/* NAVBAR */
+/* NAVIGATION */
 
 nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(2, 6, 4, 0.92);
+    background: rgba(2, 6, 4, 0.95);
     border-bottom: 1px solid #16351d;
     backdrop-filter: blur(10px);
 }
@@ -114,6 +114,7 @@ nav {
 }
 
 .btn {
+    display: inline-block;
     padding: 13px 22px;
     border: 1px solid #39e75f;
     border-radius: 8px;
@@ -128,6 +129,10 @@ nav {
 
 .btn-primary:hover {
     background: #22c55e;
+}
+
+.btn-secondary {
+    color: #f5f5f5;
 }
 
 .btn-secondary:hover {
@@ -400,6 +405,13 @@ footer {
                 View Projects
             </a>
 
+            <a
+                href="Thet_Wai_Wai_Htun_CV.pdf"
+                class="btn btn-secondary"
+                target="_blank">
+                Download CV
+            </a>
+
             <a href="#contact" class="btn btn-secondary">
                 Contact Me
             </a>
@@ -670,7 +682,7 @@ footer {
         </a>
 
         <a
-            href="mailto:thetwaiwaihtun01@gmail.com"
+            href="mailto:YOUR-EMAIL@example.com"
             class="btn btn-primary">
             Email Me
         </a>
