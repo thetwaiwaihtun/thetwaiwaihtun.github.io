@@ -26,7 +26,7 @@ a {
     text-decoration: none;
 }
 
-/* NAVIGATION */
+/* ================= NAVIGATION ================= */
 
 nav {
     position: sticky;
@@ -41,6 +41,7 @@ nav {
     max-width: 1150px;
     margin: auto;
     padding: 20px 25px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -54,7 +55,7 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 28px;
+    gap: 26px;
     list-style: none;
 }
 
@@ -67,13 +68,14 @@ nav {
     color: #39e75f;
 }
 
-/* HERO */
+/* ================= HERO ================= */
 
 .hero {
     max-width: 1150px;
     margin: auto;
     padding: 120px 25px 100px;
     min-height: 85vh;
+
     display: flex;
     align-items: center;
 }
@@ -86,6 +88,7 @@ nav {
     color: #39e75f;
     font-size: 15px;
     margin-bottom: 18px;
+
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -116,8 +119,10 @@ nav {
 .btn {
     display: inline-block;
     padding: 13px 22px;
+
     border: 1px solid #39e75f;
     border-radius: 8px;
+
     transition: 0.3s;
     font-weight: bold;
 }
@@ -139,7 +144,7 @@ nav {
     background: #0a1a0f;
 }
 
-/* GENERAL */
+/* ================= GENERAL SECTIONS ================= */
 
 section {
     max-width: 1150px;
@@ -149,8 +154,10 @@ section {
 
 .section-number {
     color: #39e75f;
+
     font-size: 14px;
     letter-spacing: 2px;
+
     margin-bottom: 10px;
 }
 
@@ -159,7 +166,7 @@ section {
     margin-bottom: 45px;
 }
 
-/* ABOUT */
+/* ================= ABOUT ================= */
 
 .about-grid {
     display: grid;
@@ -175,8 +182,10 @@ section {
 
 .about-info {
     background: #0a1a0f;
+
     border: 1px solid #16351d;
     border-radius: 12px;
+
     padding: 25px;
 }
 
@@ -190,6 +199,7 @@ section {
 
 .info-label {
     color: #39e75f;
+
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -200,7 +210,7 @@ section {
     margin-top: 4px;
 }
 
-/* PROJECTS */
+/* ================= PROJECTS ================= */
 
 .projects {
     display: grid;
@@ -210,9 +220,12 @@ section {
 
 .project-card {
     background: #0a1a0f;
+
     border: 1px solid #16351d;
     border-radius: 14px;
+
     padding: 30px;
+
     transition: 0.3s;
 }
 
@@ -223,6 +236,7 @@ section {
 
 .project-number {
     color: #39e75f;
+
     font-size: 14px;
     margin-bottom: 18px;
 }
@@ -245,13 +259,17 @@ section {
 
 .tag {
     border: 1px solid #285d33;
+
     color: #8ee69e;
+
     padding: 5px 10px;
+
     border-radius: 20px;
+
     font-size: 13px;
 }
 
-/* SKILLS */
+/* ================= SKILLS ================= */
 
 .skills-grid {
     display: grid;
@@ -261,8 +279,10 @@ section {
 
 .skill-card {
     background: #0a1a0f;
+
     border: 1px solid #16351d;
     border-radius: 12px;
+
     padding: 25px;
 }
 
@@ -275,12 +295,88 @@ section {
     color: #b4beb7;
 }
 
-/* EDUCATION */
+/* ================= CERTIFICATES ================= */
+
+.certificates {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.certificate-card {
+    background: #0a1a0f;
+
+    border: 1px solid #16351d;
+    border-radius: 12px;
+
+    padding: 25px;
+
+    transition: 0.3s;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: #39e75f;
+}
+
+.certificate-icon {
+    width: 45px;
+    height: 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #39e75f;
+    border-radius: 8px;
+
+    color: #39e75f;
+
+    margin-bottom: 18px;
+
+    font-size: 20px;
+}
+
+.certificate-card h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.certificate-card .issuer {
+    color: #39e75f;
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.certificate-card p {
+    color: #a9b3ac;
+    font-size: 14px;
+
+    margin-bottom: 18px;
+}
+
+.certificate-link {
+    color: #39e75f;
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.certificate-link:hover {
+    text-decoration: underline;
+}
+
+/* ================= EDUCATION ================= */
 
 .education-card {
     background: #0a1a0f;
+
     border: 1px solid #16351d;
     border-radius: 12px;
+
     padding: 30px;
 }
 
@@ -298,7 +394,7 @@ section {
     color: #a9b3ac;
 }
 
-/* CONTACT */
+/* ================= CONTACT ================= */
 
 .contact {
     text-align: center;
@@ -307,30 +403,39 @@ section {
 
 .contact p {
     color: #a9b3ac;
+
     max-width: 600px;
+
     margin: 0 auto 30px;
 }
 
 .contact-links {
     display: flex;
+
     justify-content: center;
+
     gap: 15px;
+
     flex-wrap: wrap;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 
 footer {
     border-top: 1px solid #16351d;
+
     text-align: center;
+
     padding: 25px;
+
     color: #718078;
+
     font-size: 14px;
 }
 
-/* MOBILE */
+/* ================= MOBILE ================= */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
 
     .nav-links {
         display: none;
@@ -352,6 +457,10 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .certificates {
+        grid-template-columns: 1fr;
+    }
+
     .hero h1 {
         font-size: 48px;
     }
@@ -359,28 +468,53 @@ footer {
 </style>
 </head>
 
+
 <body>
 
-<!-- NAVIGATION -->
+<!-- ================= NAVIGATION ================= -->
 
 <nav>
+
     <div class="nav-container">
 
-        <div class="logo">TWW.</div>
+        <div class="logo">
+            TWW.
+        </div>
 
         <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#certificates">Certificates</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
         </ul>
 
     </div>
+
 </nav>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <header class="hero">
 
@@ -391,7 +525,8 @@ footer {
         </div>
 
         <h1>
-            Hi, I'm <span>Thet Wai Wai Htun.</span>
+            Hi, I'm
+            <span>Thet Wai Wai Htun.</span>
         </h1>
 
         <p>
@@ -401,7 +536,9 @@ footer {
 
         <div class="buttons">
 
-            <a href="#projects" class="btn btn-primary">
+            <a
+                href="#projects"
+                class="btn btn-primary">
                 View Projects
             </a>
 
@@ -412,7 +549,9 @@ footer {
                 Download CV
             </a>
 
-            <a href="#contact" class="btn btn-secondary">
+            <a
+                href="#contact"
+                class="btn btn-secondary">
                 Contact Me
             </a>
 
@@ -423,13 +562,17 @@ footer {
 </header>
 
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-    <div class="section-number">01 — ABOUT</div>
+    <div class="section-number">
+        01 — ABOUT
+    </div>
 
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title">
+        About Me
+    </h2>
 
     <div class="about-grid">
 
@@ -450,27 +593,45 @@ footer {
 
         </div>
 
+
         <div class="about-info">
 
             <div class="info-item">
-                <div class="info-label">University</div>
+
+                <div class="info-label">
+                    University
+                </div>
+
                 <div class="info-value">
                     Mae Fah Luang University
                 </div>
+
             </div>
 
+
             <div class="info-item">
-                <div class="info-label">Field</div>
+
+                <div class="info-label">
+                    Field
+                </div>
+
                 <div class="info-value">
                     Digital & Communication Engineering
                 </div>
+
             </div>
 
+
             <div class="info-item">
-                <div class="info-label">Expected Graduation</div>
+
+                <div class="info-label">
+                    Expected Graduation
+                </div>
+
                 <div class="info-value">
                     2027
                 </div>
+
             </div>
 
         </div>
@@ -480,21 +641,33 @@ footer {
 </section>
 
 
-<!-- PROJECTS -->
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
 
-    <div class="section-number">02 — PROJECTS</div>
+    <div class="section-number">
+        02 — PROJECTS
+    </div>
 
-    <h2 class="section-title">Featured Projects</h2>
+    <h2 class="section-title">
+        Featured Projects
+    </h2>
+
 
     <div class="projects">
 
+
+        <!-- PROJECT 1 -->
+
         <div class="project-card">
 
-            <div class="project-number">01</div>
+            <div class="project-number">
+                01
+            </div>
 
-            <h3>Smart Home Automation System</h3>
+            <h3>
+                Smart Home Automation System
+            </h3>
 
             <p>
                 An IoT-based smart home system using ESP32,
@@ -503,21 +676,29 @@ footer {
             </p>
 
             <div class="tags">
+
                 <span class="tag">ESP32</span>
                 <span class="tag">MQTT</span>
                 <span class="tag">Firebase</span>
                 <span class="tag">Flutter</span>
                 <span class="tag">IoT</span>
+
             </div>
 
         </div>
 
 
+        <!-- PROJECT 2 -->
+
         <div class="project-card">
 
-            <div class="project-number">02</div>
+            <div class="project-number">
+                02
+            </div>
 
-            <h3>ESP32 Embedded & Automation</h3>
+            <h3>
+                ESP32 Embedded & Automation
+            </h3>
 
             <p>
                 Embedded projects using sensors, servo motors,
@@ -526,20 +707,28 @@ footer {
             </p>
 
             <div class="tags">
+
                 <span class="tag">C/C++</span>
                 <span class="tag">ESP32</span>
                 <span class="tag">Arduino</span>
                 <span class="tag">Sensors</span>
+
             </div>
 
         </div>
 
 
+        <!-- PROJECT 3 -->
+
         <div class="project-card">
 
-            <div class="project-number">03</div>
+            <div class="project-number">
+                03
+            </div>
 
-            <h3>Smart Home Mobile Application</h3>
+            <h3>
+                Smart Home Mobile Application
+            </h3>
 
             <p>
                 A Flutter mobile application designed to monitor
@@ -548,20 +737,28 @@ footer {
             </p>
 
             <div class="tags">
+
                 <span class="tag">Flutter</span>
                 <span class="tag">Dart</span>
                 <span class="tag">Figma</span>
                 <span class="tag">Firebase</span>
+
             </div>
 
         </div>
 
 
+        <!-- PROJECT 4 -->
+
         <div class="project-card">
 
-            <div class="project-number">04</div>
+            <div class="project-number">
+                04
+            </div>
 
-            <h3>Web & Software Projects</h3>
+            <h3>
+                Web & Software Projects
+            </h3>
 
             <p>
                 Web and software development projects involving
@@ -570,10 +767,12 @@ footer {
             </p>
 
             <div class="tags">
+
                 <span class="tag">HTML</span>
                 <span class="tag">CSS</span>
                 <span class="tag">JavaScript</span>
                 <span class="tag">Python</span>
+
             </div>
 
         </div>
@@ -583,19 +782,27 @@ footer {
 </section>
 
 
-<!-- SKILLS -->
+<!-- ================= SKILLS ================= -->
 
 <section id="skills">
 
-    <div class="section-number">03 — SKILLS</div>
+    <div class="section-number">
+        03 — SKILLS
+    </div>
 
-    <h2 class="section-title">Technical Skills</h2>
+    <h2 class="section-title">
+        Technical Skills
+    </h2>
+
 
     <div class="skills-grid">
 
+
         <div class="skill-card">
 
-            <h3>IoT & Embedded</h3>
+            <h3>
+                IoT & Embedded
+            </h3>
 
             <p>
                 ESP32 · Arduino · C/C++ · MQTT · Sensors ·
@@ -607,7 +814,9 @@ footer {
 
         <div class="skill-card">
 
-            <h3>Development</h3>
+            <h3>
+                Development
+            </h3>
 
             <p>
                 Flutter · Dart · Python · HTML · CSS ·
@@ -619,7 +828,9 @@ footer {
 
         <div class="skill-card">
 
-            <h3>Tools & Design</h3>
+            <h3>
+                Tools & Design
+            </h3>
 
             <p>
                 Figma · Git · GitHub · Node-RED ·
@@ -628,22 +839,171 @@ footer {
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- EDUCATION -->
+<!-- ================= CERTIFICATES ================= -->
+
+<section id="certificates">
+
+    <div class="section-number">
+        04 — CERTIFICATES
+    </div>
+
+    <h2 class="section-title">
+        Certificates
+    </h2>
+
+
+    <div class="certificates">
+
+
+        <!-- CERTIFICATE 1 -->
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                ✓
+            </div>
+
+            <h3>
+                Certificate Title
+            </h3>
+
+            <div class="issuer">
+                Issuing Organization
+            </div>
+
+            <p>
+                Certificate description or the skill
+                demonstrated by completing this certificate.
+            </p>
+
+            <a
+                href="#"
+                class="certificate-link">
+                View Certificate →
+            </a>
+
+        </div>
+
+
+        <!-- CERTIFICATE 2 -->
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                ✓
+            </div>
+
+            <h3>
+                Certificate Title
+            </h3>
+
+            <div class="issuer">
+                Issuing Organization
+            </div>
+
+            <p>
+                Certificate description or the skill
+                demonstrated by completing this certificate.
+            </p>
+
+            <a
+                href="#"
+                class="certificate-link">
+                View Certificate →
+            </a>
+
+        </div>
+
+
+        <!-- CERTIFICATE 3 -->
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                ✓
+            </div>
+
+            <h3>
+                Certificate Title
+            </h3>
+
+            <div class="issuer">
+                Issuing Organization
+            </div>
+
+            <p>
+                Certificate description or the skill
+                demonstrated by completing this certificate.
+            </p>
+
+            <a
+                href="#"
+                class="certificate-link">
+                View Certificate →
+            </a>
+
+        </div>
+
+
+        <!-- CERTIFICATE 4 -->
+
+        <div class="certificate-card">
+
+            <div class="certificate-icon">
+                ✓
+            </div>
+
+            <h3>
+                Certificate Title
+            </h3>
+
+            <div class="issuer">
+                Issuing Organization
+            </div>
+
+            <p>
+                Certificate description or the skill
+                demonstrated by completing this certificate.
+            </p>
+
+            <a
+                href="#"
+                class="certificate-link">
+                View Certificate →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= EDUCATION ================= -->
 
 <section id="education">
 
-    <div class="section-number">04 — EDUCATION</div>
+    <div class="section-number">
+        05 — EDUCATION
+    </div>
 
-    <h2 class="section-title">Education</h2>
+    <h2 class="section-title">
+        Education
+    </h2>
+
 
     <div class="education-card">
 
-        <h3>Mae Fah Luang University</h3>
+        <h3>
+            Mae Fah Luang University
+        </h3>
 
         <div class="degree">
             Digital and Communication Engineering
@@ -658,19 +1018,26 @@ footer {
 </section>
 
 
-<!-- CONTACT -->
+<!-- ================= CONTACT ================= -->
 
-<section id="contact" class="contact">
+<section
+    id="contact"
+    class="contact">
 
-    <div class="section-number">05 — CONTACT</div>
+    <div class="section-number">
+        06 — CONTACT
+    </div>
 
-    <h2 class="section-title">Let's Connect</h2>
+    <h2 class="section-title">
+        Let's Connect
+    </h2>
 
     <p>
         I am currently interested in internship opportunities
         related to IoT, embedded systems, automation,
         and software development.
     </p>
+
 
     <div class="contact-links">
 
@@ -682,7 +1049,7 @@ footer {
         </a>
 
         <a
-            href="mailto:YOUR-EMAIL@example.com"
+            href="mailto:thetwaiwaihtun01@gmail.com"
             class="btn btn-primary">
             Email Me
         </a>
@@ -692,13 +1059,14 @@ footer {
 </section>
 
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
     © 2026 Thet Wai Wai Htun · Built with HTML & CSS
 
 </footer>
+
 
 </body>
 </html>
