@@ -1,758 +1,692 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Thet Wai Wai Htun | Portfolio</title>
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #020604;
-            color: #f5f5f5;
-            line-height: 1.6;
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(2, 6, 4, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #173a22;
-            padding: 18px 7%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            color: #39e75f;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        nav a {
-            color: #b7c2ba;
-            text-decoration: none;
-            margin-left: 28px;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #39e75f;
-        }
-
-        /* HERO */
-        .hero {
-            min-height: 90vh;
-            padding: 100px 7%;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: #0b6b2b;
-            opacity: 0.12;
-            filter: blur(120px);
-            border-radius: 50%;
-            right: -100px;
-            top: 50px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .tag {
-            color: #39e75f;
-            font-size: 14px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 82px);
-            line-height: 1.05;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #39e75f;
-        }
-
-        .hero h2 {
-            color: #c4cdc7;
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 22px;
-        }
-
-        .hero-description {
-            max-width: 650px;
-            color: #8e9b92;
-            font-size: 17px;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 13px 23px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .primary {
-            background: #22c55e;
-            color: #031006;
-        }
-
-        .primary:hover {
-            background: #39e75f;
-            transform: translateY(-2px);
-        }
-
-        .secondary {
-            border: 1px solid #286b39;
-            color: #dce7df;
-        }
-
-        .secondary:hover {
-            border-color: #39e75f;
-            color: #39e75f;
-        }
-
-        /* STATS */
-        .stats {
-            padding: 45px 7%;
-            border-top: 1px solid #173a22;
-            border-bottom: 1px solid #173a22;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            background: #050b07;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat h3 {
-            color: #39e75f;
-            font-size: 40px;
-        }
-
-        .stat p {
-            color: #89968d;
-        }
-
-        /* GENERAL SECTIONS */
-        section {
-            padding: 100px 7%;
-        }
-
-        .section-label {
-            color: #39e75f;
-            font-size: 13px;
-            letter-spacing: 2px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .section-title {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .section-description {
-            max-width: 700px;
-            color: #8e9b92;
-            margin-bottom: 40px;
-        }
-
-        /* ABOUT */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text p {
-            color: #aab5ae;
-            margin-bottom: 18px;
-        }
-
-        .about-card {
-            background: linear-gradient(145deg, #0a1a0f, #050d08);
-            border: 1px solid #173a22;
-            border-radius: 15px;
-            padding: 35px;
-        }
-
-        .about-card h3 {
-            color: #39e75f;
-            margin-bottom: 20px;
-        }
-
-        .about-card p {
-            color: #aab5ae;
-        }
-
-        /* SKILLS */
-        .skills-section {
-            background: #050b07;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            max-width: 900px;
-        }
-
-        .skill {
-            padding: 11px 18px;
-            background: #0a1a0f;
-            border: 1px solid #173a22;
-            border-radius: 6px;
-            color: #c9d5cd;
-        }
-
-        .skill:hover {
-            border-color: #39e75f;
-            color: #39e75f;
-        }
-
-        /* PROJECTS */
-        .project-card {
-            background: linear-gradient(145deg, #0a1a0f, #050d08);
-            border: 1px solid #173a22;
-            border-radius: 15px;
-            padding: 35px;
-            margin-bottom: 25px;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            border-color: #286b39;
-            transform: translateY(-4px);
-        }
-
-        .project-number {
-            color: #39e75f;
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .project-card h3 {
-            font-size: 28px;
-            margin: 12px 0;
-        }
-
-        .project-tech {
-            color: #39e75f;
-            margin-bottom: 18px;
-            font-size: 14px;
-        }
-
-        .project-card p {
-            color: #9ba89f;
-            max-width: 850px;
-        }
-
-        .project-tags {
-            margin-top: 25px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            color: #aebbb2;
-            border: 1px solid #21452a;
-            padding: 6px 10px;
-            margin: 4px;
-            border-radius: 4px;
-            font-size: 12px;
-        }
-
-        /* EDUCATION */
-        .education-card {
-            background: #0a1a0f;
-            border: 1px solid #173a22;
-            border-left: 3px solid #39e75f;
-            padding: 30px;
-            border-radius: 8px;
-            max-width: 800px;
-        }
-
-        .education-card h3 {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .education-card .degree {
-            color: #39e75f;
-        }
-
-        .education-card p {
-            color: #929e96;
-        }
-
-        /* CONTACT */
-        .contact {
-            text-align: center;
-            background: #050b07;
-        }
-
-        .contact p {
-            max-width: 650px;
-            margin: 0 auto 30px;
-            color: #9ba89f;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #173a22;
-            color: #69756d;
-            font-size: 13px;
-        }
-
-        /* MOBILE */
-        @media (max-width: 750px) {
-
-            nav {
-                padding: 15px 5%;
-            }
-
-            nav a {
-                margin-left: 10px;
-                font-size: 12px;
-            }
-
-            .hero {
-                padding: 80px 6%;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-
-            .hero h2 {
-                font-size: 20px;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 70px 6%;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thet Wai Wai Htun | Portfolio</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #020604;
+    color: #f5f5f5;
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* NAVBAR */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(2, 6, 4, 0.92);
+    border-bottom: 1px solid #16351d;
+    backdrop-filter: blur(10px);
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #39e75f;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #cccccc;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #39e75f;
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1150px;
+    margin: auto;
+    padding: 120px 25px 100px;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-small {
+    color: #39e75f;
+    font-size: 15px;
+    margin-bottom: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #39e75f;
+}
+
+.hero p {
+    color: #a9b3ac;
+    font-size: 19px;
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 22px;
+    border: 1px solid #39e75f;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background: #39e75f;
+    color: #020604;
+}
+
+.btn-primary:hover {
+    background: #22c55e;
+}
+
+.btn-secondary:hover {
+    background: #0a1a0f;
+}
+
+/* GENERAL */
+
+section {
+    max-width: 1150px;
+    margin: auto;
+    padding: 90px 25px;
+}
+
+.section-number {
+    color: #39e75f;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 38px;
+    margin-bottom: 45px;
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+}
+
+.about-text p {
+    color: #a9b3ac;
+    margin-bottom: 18px;
+    font-size: 17px;
+}
+
+.about-info {
+    background: #0a1a0f;
+    border: 1px solid #16351d;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.info-item:last-child {
+    margin-bottom: 0;
+}
+
+.info-label {
+    color: #39e75f;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-value {
+    color: #eeeeee;
+    margin-top: 4px;
+}
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: #0a1a0f;
+    border: 1px solid #16351d;
+    border-radius: 14px;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #39e75f;
+}
+
+.project-number {
+    color: #39e75f;
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.project-card h3 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+.project-card p {
+    color: #a9b3ac;
+    margin-bottom: 20px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    border: 1px solid #285d33;
+    color: #8ee69e;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* SKILLS */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: #0a1a0f;
+    border: 1px solid #16351d;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.skill-card h3 {
+    color: #39e75f;
+    margin-bottom: 15px;
+}
+
+.skill-card p {
+    color: #b4beb7;
+}
+
+/* EDUCATION */
+
+.education-card {
+    background: #0a1a0f;
+    border: 1px solid #16351d;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.education-card h3 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.education-card .degree {
+    color: #39e75f;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    color: #a9b3ac;
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+    padding-bottom: 110px;
+}
+
+.contact p {
+    color: #a9b3ac;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #16351d;
+    text-align: center;
+    padding: 25px;
+    color: #718078;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding-top: 80px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <nav>
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="nav-container">
+
         <div class="logo">TWW.</div>
 
-        <div>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
 
 
-    <!-- HERO -->
-    <section class="hero">
+<!-- HERO -->
 
-        <div class="hero-content">
+<header class="hero">
 
-            <div class="tag">
-                DIGITAL & COMMUNICATION ENGINEERING STUDENT
-            </div>
+    <div class="hero-content">
 
-            <h1>
-                Building Smart Systems
-                <span>with Technology.</span>
-            </h1>
-
-            <h2>
-                IoT • Embedded Systems • Automation • Software Development
-            </h2>
-
-            <p class="hero-description">
-                I'm a Digital and Communication Engineering student
-                interested in creating practical systems that connect
-                hardware, software, and intelligent technologies.
-            </p>
-
-            <div class="buttons">
-                <a href="#projects" class="button primary">
-                    View My Projects →
-                </a>
-
-                <a href="#contact" class="button secondary">
-                    Contact Me
-                </a>
-            </div>
-
+        <div class="hero-small">
+            Digital & Communication Engineering
         </div>
 
-    </section>
+        <h1>
+            Hi, I'm <span>Thet Wai Wai Htun.</span>
+        </h1>
 
+        <p>
+            I build practical solutions with IoT, embedded systems,
+            automation, and software development.
+        </p>
 
-    <!-- STATS -->
-    <div class="stats">
+        <div class="buttons">
 
-        <div class="stat">
-            <h3>IoT</h3>
-            <p>Connected Systems</p>
-        </div>
+            <a href="#projects" class="btn btn-primary">
+                View Projects
+            </a>
 
-        <div class="stat">
-            <h3>ESP32</h3>
-            <p>Embedded Development</p>
-        </div>
+            <a href="#contact" class="btn btn-secondary">
+                Contact Me
+            </a>
 
-        <div class="stat">
-            <h3>Flutter</h3>
-            <p>Mobile Applications</p>
         </div>
 
     </div>
 
+</header>
 
-    <!-- ABOUT -->
-    <section id="about">
 
-        <div class="section-label">01 — ABOUT ME</div>
+<!-- ABOUT -->
 
-        <div class="about-grid">
+<section id="about">
 
-            <div class="about-text">
+    <div class="section-number">01 — ABOUT</div>
 
-                <h2 class="section-title">
-                    Turning Ideas Into
-                    <span style="color:#39e75f;">Real Projects.</span>
-                </h2>
+    <h2 class="section-title">About Me</h2>
 
-                <p>
-                    I am a Digital and Communication Engineering student
-                    at Mae Fah Luang University.
-                </p>
+    <div class="about-grid">
 
-                <p>
-                    My interests include IoT, embedded systems,
-                    automation, mobile application development,
-                    and software engineering.
-                </p>
+        <div class="about-text">
 
-                <p>
-                    I enjoy learning through hands-on projects and
-                    combining hardware and software to solve practical
-                    problems.
-                </p>
+            <p>
+                I am a Digital and Communication Engineering student
+                at Mae Fah Luang University with an interest in
+                IoT, embedded systems, automation, and software development.
+            </p>
 
+            <p>
+                I enjoy combining hardware and software to create
+                practical technology solutions. My current work includes
+                ESP32-based systems, smart home automation, Flutter
+                applications, and IoT projects.
+            </p>
+
+        </div>
+
+        <div class="about-info">
+
+            <div class="info-item">
+                <div class="info-label">University</div>
+                <div class="info-value">
+                    Mae Fah Luang University
+                </div>
             </div>
 
+            <div class="info-item">
+                <div class="info-label">Field</div>
+                <div class="info-value">
+                    Digital & Communication Engineering
+                </div>
+            </div>
 
-            <div class="about-card">
-
-                <h3>What I'm Looking For</h3>
-
-                <p>
-                    I'm currently looking for an engineering internship
-                    where I can apply my technical skills, learn from
-                    real-world projects, and contribute to a professional
-                    engineering team.
-                </p>
-
+            <div class="info-item">
+                <div class="info-label">Expected Graduation</div>
+                <div class="info-value">
+                    2027
+                </div>
             </div>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- SKILLS -->
-    <section id="skills" class="skills-section">
+<!-- PROJECTS -->
 
-        <div class="section-label">02 — SKILLS</div>
+<section id="projects">
 
-        <h2 class="section-title">
-            Technical Skills
-        </h2>
+    <div class="section-number">02 — PROJECTS</div>
 
-        <p class="section-description">
-            Technologies and tools I use for developing software,
-            embedded systems, and IoT projects.
-        </p>
+    <h2 class="section-title">Featured Projects</h2>
 
-        <div class="skills">
+    <div class="projects">
 
-            <span class="skill">C / C++</span>
-            <span class="skill">Python</span>
-            <span class="skill">Dart</span>
-            <span class="skill">Flutter</span>
-            <span class="skill">ESP32</span>
-            <span class="skill">Arduino</span>
-            <span class="skill">MQTT</span>
-            <span class="skill">Firebase</span>
-            <span class="skill">HTML / CSS</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Figma</span>
-            <span class="skill">Git / GitHub</span>
-            <span class="skill">Node-RED</span>
-            <span class="skill">REST API</span>
-            <span class="skill">Unity</span>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROJECTS -->
-    <section id="projects">
-
-        <div class="section-label">03 — PROJECTS</div>
-
-        <h2 class="section-title">
-            Featured Projects
-        </h2>
-
-        <p class="section-description">
-            A selection of projects that demonstrate my experience
-            with hardware, software, IoT, and application development.
-        </p>
-
-
-        <!-- PROJECT 1 -->
         <div class="project-card">
 
-            <div class="project-number">
-                PROJECT 01
-            </div>
+            <div class="project-number">01</div>
 
-            <h3>
-                Smart Home Automation System
-            </h3>
-
-            <div class="project-tech">
-                ESP32 • MQTT • Firebase • Flutter • Sensors
-            </div>
+            <h3>Smart Home Automation System</h3>
 
             <p>
-                An IoT-based smart home system designed to monitor
-                sensors and control household devices through a
-                mobile application.
+                An IoT-based smart home system using ESP32,
+                sensors, MQTT, Firebase, and Flutter for
+                monitoring, automation, and device control.
             </p>
 
-            <p style="margin-top:15px;">
-                The system combines ESP32 devices, sensors,
-                automation logic, MQTT communication, Firebase,
-                and a Flutter mobile application.
-            </p>
-
-            <div class="project-tags">
-                <span class="project-tag">IoT</span>
-                <span class="project-tag">Embedded Systems</span>
-                <span class="project-tag">ESP32</span>
-                <span class="project-tag">Flutter</span>
-                <span class="project-tag">MQTT</span>
-                <span class="project-tag">Firebase</span>
+            <div class="tags">
+                <span class="tag">ESP32</span>
+                <span class="tag">MQTT</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Flutter</span>
+                <span class="tag">IoT</span>
             </div>
 
         </div>
 
 
-        <!-- PROJECT 2 -->
         <div class="project-card">
 
-            <div class="project-number">
-                PROJECT 02
-            </div>
+            <div class="project-number">02</div>
 
-            <h3>
-                ESP32 Embedded & Automation Projects
-            </h3>
-
-            <div class="project-tech">
-                C++ • ESP32 • Sensors • Actuators
-            </div>
+            <h3>ESP32 Embedded & Automation</h3>
 
             <p>
-                Hands-on embedded projects using ESP32, sensors,
-                LEDs, servos, fans, and automation logic.
-                These projects helped me develop practical experience
-                with hardware connections and embedded programming.
+                Embedded projects using sensors, servo motors,
+                LEDs, fans, and ESP32 to create automated
+                hardware systems.
             </p>
 
-            <div class="project-tags">
-                <span class="project-tag">C++</span>
-                <span class="project-tag">ESP32</span>
-                <span class="project-tag">Sensors</span>
-                <span class="project-tag">Automation</span>
+            <div class="tags">
+                <span class="tag">C/C++</span>
+                <span class="tag">ESP32</span>
+                <span class="tag">Arduino</span>
+                <span class="tag">Sensors</span>
             </div>
 
         </div>
 
 
-        <!-- PROJECT 3 -->
         <div class="project-card">
 
-            <div class="project-number">
-                PROJECT 03
-            </div>
+            <div class="project-number">03</div>
 
-            <h3>
-                Web & Mobile Development
-            </h3>
-
-            <div class="project-tech">
-                Flutter • Dart • HTML • CSS • Figma
-            </div>
+            <h3>Smart Home Mobile Application</h3>
 
             <p>
-                Development and UI/UX projects involving responsive
-                interfaces, mobile applications, wireframes,
-                prototypes, and user-focused design.
+                A Flutter mobile application designed to monitor
+                and control smart home devices with a clean
+                user interface and centralized dashboard.
             </p>
 
-            <div class="project-tags">
-                <span class="project-tag">Flutter</span>
-                <span class="project-tag">Dart</span>
-                <span class="project-tag">Figma</span>
-                <span class="project-tag">UI/UX</span>
+            <div class="tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Figma</span>
+                <span class="tag">Firebase</span>
             </div>
 
         </div>
 
-    </section>
 
+        <div class="project-card">
 
-    <!-- EDUCATION -->
-    <section id="education" class="skills-section">
+            <div class="project-number">04</div>
 
-        <div class="section-label">04 — EDUCATION</div>
-
-        <h2 class="section-title">
-            Education
-        </h2>
-
-        <div class="education-card">
-
-            <h3>Mae Fah Luang University</h3>
-
-            <p class="degree">
-                Digital and Communication Engineering
-            </p>
+            <h3>Web & Software Projects</h3>
 
             <p>
-                Undergraduate Student
+                Web and software development projects involving
+                front-end development, APIs, databases, and
+                interactive applications.
             </p>
 
+            <div class="tags">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Python</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="section-number">03 — SKILLS</div>
+
+    <h2 class="section-title">Technical Skills</h2>
+
+    <div class="skills-grid">
+
+        <div class="skill-card">
+
+            <h3>IoT & Embedded</h3>
+
             <p>
-                Expected Graduation: 2027
+                ESP32 · Arduino · C/C++ · MQTT · Sensors ·
+                Embedded Systems · Automation
             </p>
 
         </div>
 
-    </section>
+
+        <div class="skill-card">
+
+            <h3>Development</h3>
+
+            <p>
+                Flutter · Dart · Python · HTML · CSS ·
+                JavaScript · REST API
+            </p>
+
+        </div>
 
 
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
+        <div class="skill-card">
 
-        <div class="section-label">05 — CONTACT</div>
+            <h3>Tools & Design</h3>
 
-        <h2 class="section-title">
-            Let's Connect.
-        </h2>
+            <p>
+                Figma · Git · GitHub · Node-RED ·
+                Unity · UI/UX Design
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+    <div class="section-number">04 — EDUCATION</div>
+
+    <h2 class="section-title">Education</h2>
+
+    <div class="education-card">
+
+        <h3>Mae Fah Luang University</h3>
+
+        <div class="degree">
+            Digital and Communication Engineering
+        </div>
 
         <p>
-            I'm currently seeking an engineering internship opportunity
-            where I can develop my technical skills and contribute to
-            real-world projects.
+            Undergraduate Student · Expected Graduation: 2027
         </p>
 
-        <div class="contact-links">
+    </div>
 
-            <a
-                href="https://github.com/thetwaiwaihtun"
-                class="button secondary"
-                target="_blank">
-                GitHub
-            </a>
-
-            <a
-                href="mailto:thetwaiwaihtun01@gmail.com"
-                class="button primary">
-                Email Me
-            </a>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- FOOTER -->
-    <footer>
-        © 2026 Thet Wai Wai Htun · Digital & Communication Engineering
-    </footer>
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+    <div class="section-number">05 — CONTACT</div>
+
+    <h2 class="section-title">Let's Connect</h2>
+
+    <p>
+        I am currently interested in internship opportunities
+        related to IoT, embedded systems, automation,
+        and software development.
+    </p>
+
+    <div class="contact-links">
+
+        <a
+            href="https://github.com/thetwaiwaihtun"
+            class="btn btn-secondary"
+            target="_blank">
+            GitHub
+        </a>
+
+        <a
+            href="mailto:YOUR-EMAIL@example.com"
+            class="btn btn-primary">
+            Email Me
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    © 2026 Thet Wai Wai Htun · Built with HTML & CSS
+
+</footer>
 
 </body>
 </html>
