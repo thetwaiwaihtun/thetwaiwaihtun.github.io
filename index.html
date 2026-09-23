@@ -7,7 +7,7 @@
 <title>Thet Wai Wai Htun | Portfolio</title>
 
 <style>
-    .hero-image {
+.hero-image {
     flex: 0 0 520px;
     display: flex;
     justify-content: center;
@@ -19,25 +19,12 @@
 .hero-image img {
     width: 520px;
     height: 650px;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: contain;
+    object-position: center bottom;
 
     border: none;
     border-radius: 0;
     box-shadow: none;
-
-    /* Blend the photo into the dark background */
-    mask-image: linear-gradient(
-        to bottom,
-        black 75%,
-        transparent 100%
-    );
-
-    -webkit-mask-image: linear-gradient(
-        to bottom,
-        black 75%,
-        transparent 100%
-    );
 }
 * {
     margin: 0;
