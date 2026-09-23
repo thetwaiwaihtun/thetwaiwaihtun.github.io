@@ -85,42 +85,48 @@ nav {
 /* ================= HERO ================= */
 
 .hero {
-    max-width: 1150px;
+    max-width: 1200px;
     margin: auto;
-    padding: 120px 25px 100px;
-    min-height: 85vh;
+    padding: 80px 40px;
+    min-height: calc(100vh - 80px);
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    gap: 70px;
 }
 
 .hero-content {
-    max-width: 850px;
+    flex: 1;
+    max-width: 620px;
 }
 
 .hero-small {
     color: #39e75f;
-    font-size: 15px;
-    margin-bottom: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 22px;
 
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     text-transform: uppercase;
 }
 
 .hero h1 {
-    font-size: clamp(45px, 7vw, 82px);
-    line-height: 1.05;
+    font-size: 58px;
+    line-height: 1.1;
+    font-weight: 700;
     margin-bottom: 25px;
 }
 
 .hero h1 span {
+    display: block;
     color: #39e75f;
 }
-
 .hero p {
     color: #a9b3ac;
-    font-size: 19px;
-    max-width: 700px;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 560px;
     margin-bottom: 35px;
 }
 
@@ -530,16 +536,14 @@ footer {
 
 <!-- ================= HERO ================= -->
 
-<header class="hero">
+<!-- ================= HERO ================= -->
 
-    <div class="hero-image">
-        <img src="images/profile.jpg" alt="Thet Wai Wai Htun">
-    </div>
+<header class="hero">
 
     <div class="hero-content">
 
         <div class="hero-small">
-            Digital & Communication Engineering
+            DIGITAL & COMMUNICATION ENGINEERING
         </div>
 
         <h1>
@@ -554,31 +558,37 @@ footer {
 
         <div class="buttons">
 
-            <a
-                href="#projects"
-                class="btn btn-primary">
+            <a href="#projects" class="btn btn-primary">
                 View Projects
+                <span>→</span>
             </a>
 
-            <a
-                href="Thet_Wai_Wai_Htun_CV.pdf"
-                class="btn btn-secondary"
-                target="_blank">
+            <a href="Thet_Wai_Wai_Htun_CV.pdf"
+               class="btn btn-secondary"
+               target="_blank">
                 Download CV
+                <span>↓</span>
             </a>
 
-            <a
-                href="#contact"
-                class="btn btn-secondary">
+            <a href="#contact" class="btn btn-secondary">
                 Contact Me
+                <span>✉</span>
             </a>
 
         </div>
 
     </div>
 
-</header>
+    <div class="hero-image">
 
+        <img
+            src="images/profile.jpg"
+            alt="Thet Wai Wai Htun"
+        >
+
+    </div>
+
+</header>
 
 <!-- ================= ABOUT ================= -->
 
