@@ -484,6 +484,220 @@ footer {
     border-radius: 6px;
     background: #0a1a0f;
 }
+
+/* ================= GLOBAL DARK THEME FIX ================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #020604;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ================= CERTIFICATE CAROUSEL ================= */
+.certificates-section {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 80px 25px 100px;
+    background: #020604;
+    color: #f5f5f5;
+    overflow: hidden;
+}
+
+.certificates-section .section-title {
+    color: #f5f5f5;
+    margin-bottom: 35px;
+}
+
+.certificate-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    min-height: 430px;
+}
+
+.certificate-stage {
+    position: relative;
+    width: min(100%, 850px);
+    height: 430px;
+    perspective: 1200px;
+}
+
+.certificate-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(68%, 540px);
+    padding: 18px;
+    background: #0a1a0f;
+    border: 1px solid #285d33;
+    border-radius: 14px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -50%) scale(.72);
+    transition: transform .45s ease, opacity .45s ease, filter .45s ease;
+    z-index: 0;
+}
+
+.certificate-slide img {
+    display: block;
+    width: 100%;
+    height: 290px;
+    object-fit: contain;
+    background: #020604;
+    border-radius: 8px;
+}
+
+.certificate-slide h3 {
+    margin: 16px 0 6px;
+    color: #39e75f;
+    font-size: 20px;
+}
+
+.certificate-slide p {
+    margin: 0;
+    color: #a9b3ac;
+    font-size: 14px;
+}
+
+.certificate-slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    filter: none;
+    z-index: 3;
+}
+
+.certificate-slide.prev-slide {
+    opacity: .38;
+    visibility: visible;
+    transform: translate(-115%, -50%) scale(.76);
+    filter: brightness(.6);
+    z-index: 2;
+}
+
+.certificate-slide.next-slide {
+    opacity: .38;
+    visibility: visible;
+    transform: translate(15%, -50%) scale(.76);
+    filter: brightness(.6);
+    z-index: 2;
+}
+
+.carousel-arrow {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #285d33;
+    border-radius: 50%;
+    background: #0a1a0f;
+    color: #d7e3da;
+    font-size: 20px;
+    cursor: pointer;
+    transition: .25s;
+    z-index: 5;
+}
+
+.carousel-arrow:hover {
+    color: #020604;
+    background: #39e75f;
+    border-color: #39e75f;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border: 0;
+    border-radius: 50%;
+    background: #454b48;
+    cursor: pointer;
+    padding: 0;
+}
+
+.carousel-dot.active {
+    width: 30px;
+    border-radius: 10px;
+    background: #39e75f;
+}
+
+@media (max-width: 850px) {
+    .certificate-carousel {
+        gap: 8px;
+        min-height: 350px;
+    }
+
+    .certificate-stage {
+        height: 350px;
+    }
+
+    .certificate-slide {
+        width: 82%;
+        padding: 12px;
+    }
+
+    .certificate-slide img {
+        height: 220px;
+    }
+
+    .certificate-slide.prev-slide {
+        transform: translate(-92%, -50%) scale(.7);
+    }
+
+    .certificate-slide.next-slide {
+        transform: translate(-8%, -50%) scale(.7);
+    }
+
+    .carousel-arrow {
+        flex-basis: 38px;
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 520px) {
+    .certificate-slide {
+        width: 90%;
+    }
+
+    .certificate-slide.prev-slide,
+    .certificate-slide.next-slide {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .certificate-slide img {
+        height: 190px;
+    }
+}
+
 </style>
 </head>
 
@@ -1012,6 +1226,65 @@ footer {
 
 </footer>
 
+
+
+<script>
+/* ================= CERTIFICATE CAROUSEL CONTROLS ================= */
+document.addEventListener("DOMContentLoaded", function () {
+    const slides = Array.from(document.querySelectorAll(".certificate-slide"));
+    const previousButton = document.querySelector(".carousel-arrow.prev");
+    const nextButton = document.querySelector(".carousel-arrow.next");
+    const dotsContainer = document.querySelector(".carousel-dots");
+
+    if (!slides.length || !previousButton || !nextButton || !dotsContainer) return;
+
+    let currentIndex = 0;
+
+    slides.forEach((slide, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "carousel-dot";
+        dot.setAttribute("aria-label", "Show certificate " + (index + 1));
+        dot.addEventListener("click", () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = Array.from(dotsContainer.querySelectorAll(".carousel-dot"));
+
+    function updateCarousel() {
+        const total = slides.length;
+        const previousIndex = (currentIndex - 1 + total) % total;
+        const nextIndex = (currentIndex + 1) % total;
+
+        slides.forEach((slide, index) => {
+            slide.classList.remove("active", "prev-slide", "next-slide");
+            if (index === currentIndex) slide.classList.add("active");
+            else if (index === previousIndex) slide.classList.add("prev-slide");
+            else if (index === nextIndex) slide.classList.add("next-slide");
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+            dot.setAttribute("aria-current", index === currentIndex ? "true" : "false");
+        });
+    }
+
+    previousButton.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateCarousel();
+    });
+
+    nextButton.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateCarousel();
+    });
+
+    updateCarousel();
+});
+</script>
 
 </body>
 </html>
